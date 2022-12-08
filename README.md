@@ -20,7 +20,7 @@ $ cd volgre
 $ go build
 
 
-$ ./volgre  -host <your server ip address> -port 8082 &
+$ ./volgre  -host _your server ip address_ -port 8082 &
 
 
 Test the server
@@ -33,7 +33,7 @@ In other console:
 $ cd volgre
 
 
-$ curl -v -X POST http://<your ip address>:8082/run/engine/credit_card --data @input.json
+$ curl -v -X POST http://_your server ip address_:8082/run/engine/credit_card --data @input.json
 
 
 Output Data

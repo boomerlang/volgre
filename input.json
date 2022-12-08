@@ -1,0 +1,36 @@
+{
+
+    "tenant": {
+
+        "tenantType": "tenantType1",
+
+        "tenantId": "tenant1",
+
+        "tenantFlow": "tenantFlow1",
+
+        "tenantDB": "tenantDB1",
+
+        "tenantDbSchema": "tenantDbSchema1"
+
+    },
+
+    "messageType": "CreditCard",
+
+    "messageContent": {
+
+        "cardNumber": "1234123412341234",
+
+        "ownerName": "John Doe",
+
+        "expireMonth": "07",
+
+        "expireYear": "2025",
+
+        "securityCode": "123",
+
+        "currency": "EUR",
+
+        "amount": "205.73"
+    }
+
+}

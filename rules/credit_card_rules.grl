@@ -1,0 +1,47 @@
+rule CheckCardNumber "check card number structure"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber");
+}
+
+rule Check1 "test chaining"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check1");
+}
+
+rule CheckHolderName "check holder name"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName");
+}
+
+rule CheckExpMonth "check expiration month"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth");
+}
+
+rule CheckExpYear "check expiration year"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear");
+}
+
+rule CheckSecurityCode "check security code" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode");
+}

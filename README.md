@@ -47,3 +47,7 @@ On an Intel(R) Core(TM) i5-5675R CPU @ 3.10GHz, 8GB RAM rule engine execution ti
 
 On other configuration the timings might vary.
 
+Quick Test
+----------
+
+$ curl -X POST http://141.147.22.26:8084/run/engine/credit_card --data @input.json

@@ -1,3 +1,8 @@
+//
+// Controllers
+//
+// Author Bogdan Peta
+//
 package controllers
 
 import (
@@ -8,8 +13,10 @@ import (
 	"github.com/boomerlang/volgre/lib/volantere"
 )
 
+//
+// Preloads all registered rule engines at application start up
+//
 func PreloadRuleEngines() {
-
 	for engine_name, engine_id := range volantere.RegisteredRuleEngines {
 		rule_engine, err := volantere.GetRuleEngine(engine_id)
 

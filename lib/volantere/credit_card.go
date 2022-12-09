@@ -1,5 +1,7 @@
 //
-// Rules engine for credit card
+// Rule engine for credit card
+//
+// Author Bogdan Peta
 //
 package volantere
 

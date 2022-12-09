@@ -1,6 +1,20 @@
 //
-// This is a rule engine root package that will hold multiple rule engines
+// This is the rule engine root package that will hold multiple rule engines
 // defined by various business rules
+//
+// Implements the Factory design pattern
+//
+// Conventions: 
+//
+// 1. Every rule engine will live in a file with name of the rule engine
+// in this package and in this directory.
+//
+// 2. Every rule engine will implement the interface VolanteRuleEngine.
+//
+// 3. Every rule engine will load its rules from the directory:
+// $PATH_TO/volgre/rules/<rule_engine_name>.grl
+//
+// Author Bogdan Peta
 //
 package volantere
 
@@ -21,12 +35,15 @@ const (
 	BankNotExistentRuleEngine = 2
 )
 
+// registered rules engines
+// TODO: load them from a config file
 var RegisteredRuleEngines map[string]int = map[string]int{
 	"credit_card": CreditCardRuleEngineT,
 }
 
+// Here will be pre-loadede the registered rules engines
+// Singleton design pattern
 var LoadedRuleEngines map[string]VolanteRuleEngine = map[string]VolanteRuleEngine{}
-
 
 func GetRuleEngine(m int) (VolanteRuleEngine, error) {
 	switch m {

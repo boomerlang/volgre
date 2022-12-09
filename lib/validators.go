@@ -1,3 +1,8 @@
+//
+// Validators for all rule engines
+//
+// Author Bogdan Peta
+//
 package validators
 
 import (

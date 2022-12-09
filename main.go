@@ -1,3 +1,7 @@
+//
+// main package
+// Author Bogdan Peta
+//
 package main
 
 import (

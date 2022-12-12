@@ -40,7 +40,9 @@ func main () {
 
 	r := mux.NewRouter()
 	
-	r.HandleFunc("/run/engine/{rule_engine}", controllers.RuleEngineHandler).Methods("POST")
+	r.HandleFunc("/run/engine/{rule_engine}", controllers.RunRuleEngineHandler).Methods("POST")
+	r.HandleFunc("/refresh/engine/{rule_engine}", controllers.RefreshRuleEngineHandler).Methods("GET")
+	r.HandleFunc("/version/engine/{rule_engine}", controllers.VersionRuleEngineHandler).Methods("GET")
 	
 	srv := &http.Server{
 		Handler: r, 

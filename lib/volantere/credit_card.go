@@ -7,14 +7,10 @@ package volantere
 
 import (
 	"fmt"
-	"github.com/hyperjumptech/grule-rule-engine/ast"
-	"github.com/hyperjumptech/grule-rule-engine/builder"
-	"github.com/hyperjumptech/grule-rule-engine/engine"
-	"github.com/hyperjumptech/grule-rule-engine/pkg"
 
 	"strconv"
 	"time"
-
+	
 	"github.com/boomerlang/volgre/lib"
 )
 
@@ -44,6 +40,61 @@ type CreditCard struct {
 	Rule_engine_execution_time string `json:"volgre:rule_engine_execution_time"`
 }
 
+type CreditCardRuleEngine struct {
+	data *CreditCard
+
+	vr *ValidationResult
+
+	re *RuleEngine
+}
+
+func (ccre *CreditCardRuleEngine) Load(fn func(interface{})) {
+	ccre.data = new(CreditCard)
+	fn(&ccre.data)
+}
+
+func (ccre *CreditCardRuleEngine) Dump(fn func(interface{}) ([]byte, error)) (rez []byte) {
+	rez, err := fn(ccre.data)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return rez
+}
+
+func (ccre *CreditCardRuleEngine) Init(rule_path string) {
+	ccre.re = new(RuleEngine)
+	ccre.re.name = "CreditCard"
+	ccre.re.init(rule_path)
+}
+
+func (ccre *CreditCardRuleEngine) Version() string {
+	return ccre.re.crt_version
+}
+
+func (ccre *CreditCardRuleEngine) Refresh() {
+	ccre.re.refresh()
+}
+
+func (ccre *CreditCardRuleEngine) Run() {
+	start := time.Now()
+
+	ccre.vr = &ValidationResult{}
+
+	ccre.re.add_datacontext("CreditCard", ccre.data)
+	
+	ccre.re.add_datacontext("ValidationResults", ccre.vr)
+	
+	ccre.re.run()
+
+	ccre.data.Result = *ccre.vr
+	elapsed := time.Since(start)
+	ccre.data.Rule_engine_execution_time = fmt.Sprintf("%s", elapsed)
+}
+
+
+// Rules data structure
 func (cc *CreditCard) ValidateCardNumber() bool {
 	ccn := cc.MessageContent.(map[string]interface{})["cardNumber"].(string)
 
@@ -122,69 +173,3 @@ func (cc *CreditCard) ValidateHolderName() bool {
 	return validators.CheckHolderName(holder)
 }
 
-type CreditCardRuleEngine struct {
-	fileRes pkg.Resource
-	kb_lib *ast.KnowledgeLibrary
-	dataContext ast.IDataContext
-	rule_builder *builder.RuleBuilder
-
-	data *CreditCard
-
-	vr *ValidationResult
-}
-
-func (ccre *CreditCardRuleEngine) Load(fn func(interface{})) {
-	ccre.data = new(CreditCard)
-	fn(&ccre.data)
-}
-
-func (ccre *CreditCardRuleEngine) Dump(fn func(interface{}) ([]byte, error)) (rez []byte) {
-	rez, err := fn(ccre.data)
-
-	if err != nil {
-		panic(err)
-	}
-
-	return rez
-}
-
-func (ccre *CreditCardRuleEngine) Init(rule_path string) {
-	
-	ccre.fileRes = pkg.NewFileResource(rule_path)
-	ccre.kb_lib = ast.NewKnowledgeLibrary()
-	ccre.rule_builder = builder.NewRuleBuilder(ccre.kb_lib)
-
-	err := ccre.rule_builder.BuildRuleFromResource("Test", "0.1.1", ccre.fileRes)
-
-	if err != nil {
-		panic(err)
-	}
-}
-
-func (ccre *CreditCardRuleEngine) Run() {
-	start := time.Now()
-
-	ccre.vr = &ValidationResult{}
-	ccre.dataContext = ast.NewDataContext()
-	err := ccre.dataContext.Add("CreditCard", ccre.data)
-	if err != nil {
-		panic(err)
-	}
-
-	err = ccre.dataContext.Add("ValidationResults", ccre.vr)
-	if err != nil {
-		panic(err)
-	}
-
-	kb_inst := ccre.kb_lib.NewKnowledgeBaseInstance("Test", "0.1.1")
-	reng := &engine.GruleEngine{MaxCycle: 100}
-	err = reng.Execute(ccre.dataContext, kb_inst)
-	
-	if err != nil {
-		panic(err)
-	}
-
-	ccre.data.Result = *ccre.vr
-	elapsed := time.Since(start)
-	ccre.data.Rule_engine_execution_time = fmt.Sprintf("%s", elapsed)
-}

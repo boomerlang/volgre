@@ -12,7 +12,7 @@
 // 2. Every rule engine will implement the interface VolanteRuleEngine.
 //
 // 3. Every rule engine will load its rules from the directory:
-// $PATH_TO/volgre/rules/<rule_engine_name>.grl
+// $PATH_TO/volgre/rules/<rule_engine_name>/<version>.grl
 //
 // Author Bogdan Peta
 //
@@ -28,6 +28,8 @@ type VolanteRuleEngine interface {
 	Load(f func(interface{}))
 	Dump(f func(interface{}) ([]byte, error)) []byte
 	Run()
+	Refresh()
+	Version() string
 }
 
 const (
@@ -53,4 +55,3 @@ func GetRuleEngine(m int) (VolanteRuleEngine, error) {
 		return nil, errors.New(fmt.Sprintf("RuleEngine %d not available\n", m))
 	}
 }
-

@@ -46,3 +46,771 @@ rule CheckSecurityCode1 "check security code 1" salience 10 {
 	    Retract("CheckSecurityCode1");
 }
 
+rule CheckCardNumber2 "check card number structure 2"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber2");
+}
+
+rule Check12 "test chaining 2"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check12");
+}
+
+rule CheckHolderName2 "check holder name 2"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName2");
+}
+
+rule CheckExpMonth2 "check expiration month 2"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth2");
+}
+
+rule CheckExpYear2 "check expiration year 2"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear2");
+}
+
+rule CheckSecurityCode2 "check security code 2" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode2");
+}
+
+rule CheckCardNumber3 "check card number structure 3"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber3");
+}
+
+rule Check13 "test chaining 3"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check13");
+}
+
+rule CheckHolderName3 "check holder name 3"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName3");
+}
+
+rule CheckExpMonth3 "check expiration month 3"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth3");
+}
+
+rule CheckExpYear3 "check expiration year 3"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear3");
+}
+
+rule CheckSecurityCode3 "check security code 3" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode3");
+}
+
+rule CheckCardNumber4 "check card number structure 4"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber4");
+}
+
+rule Check14 "test chaining 4"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check14");
+}
+
+rule CheckHolderName4 "check holder name 4"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName4");
+}
+
+rule CheckExpMonth4 "check expiration month 4"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth4");
+}
+
+rule CheckExpYear4 "check expiration year 4"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear4");
+}
+
+rule CheckSecurityCode4 "check security code 4" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode4");
+}
+
+rule CheckCardNumber5 "check card number structure 5"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber5");
+}
+
+rule Check15 "test chaining 5"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check15");
+}
+
+rule CheckHolderName5 "check holder name 5"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName5");
+}
+
+rule CheckExpMonth5 "check expiration month 5"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth5");
+}
+
+rule CheckExpYear5 "check expiration year 5"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear5");
+}
+
+rule CheckSecurityCode5 "check security code 5" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode5");
+}
+
+rule CheckCardNumber6 "check card number structure 6"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber6");
+}
+
+rule Check16 "test chaining 6"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check16");
+}
+
+rule CheckHolderName6 "check holder name 6"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName6");
+}
+
+rule CheckExpMonth6 "check expiration month 6"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth6");
+}
+
+rule CheckExpYear6 "check expiration year 6"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear6");
+}
+
+rule CheckSecurityCode6 "check security code 6" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode6");
+}
+
+rule CheckCardNumber7 "check card number structure 7"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber7");
+}
+
+rule Check17 "test chaining 7"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check17");
+}
+
+rule CheckHolderName7 "check holder name 7"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName7");
+}
+
+rule CheckExpMonth7 "check expiration month 7"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth7");
+}
+
+rule CheckExpYear7 "check expiration year 7"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear7");
+}
+
+rule CheckSecurityCode7 "check security code 7" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode7");
+}
+
+rule CheckCardNumber8 "check card number structure 8"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber8");
+}
+
+rule Check18 "test chaining 8"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check18");
+}
+
+rule CheckHolderName8 "check holder name 8"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName8");
+}
+
+rule CheckExpMonth8 "check expiration month 8"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth8");
+}
+
+rule CheckExpYear8 "check expiration year 8"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear8");
+}
+
+rule CheckSecurityCode8 "check security code 8" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode8");
+}
+
+rule CheckCardNumber9 "check card number structure 9"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber9");
+}
+
+rule Check19 "test chaining 9"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check19");
+}
+
+rule CheckHolderName9 "check holder name 9"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName9");
+}
+
+rule CheckExpMonth9 "check expiration month 9"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth9");
+}
+
+rule CheckExpYear9 "check expiration year 9"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear9");
+}
+
+rule CheckSecurityCode9 "check security code 9" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode9");
+}
+
+rule CheckCardNumber10 "check card number structure 10"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber10");
+}
+
+rule Check110 "test chaining 10"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check110");
+}
+
+rule CheckHolderName10 "check holder name 10"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName10");
+}
+
+rule CheckExpMonth10 "check expiration month 10"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth10");
+}
+
+rule CheckExpYear10 "check expiration year 10"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear10");
+}
+
+rule CheckSecurityCode10 "check security code 10" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode10");
+}
+
+rule CheckCardNumber11 "check card number structure 11"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber11");
+}
+
+rule Check111 "test chaining 11"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check111");
+}
+
+rule CheckHolderName11 "check holder name 11"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName11");
+}
+
+rule CheckExpMonth11 "check expiration month 11"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth11");
+}
+
+rule CheckExpYear11 "check expiration year 11"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear11");
+}
+
+rule CheckSecurityCode11 "check security code 11" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode11");
+}
+
+rule CheckCardNumber12 "check card number structure 12"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber12");
+}
+
+rule Check112 "test chaining 12"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check112");
+}
+
+rule CheckHolderName12 "check holder name 12"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName12");
+}
+
+rule CheckExpMonth12 "check expiration month 12"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth12");
+}
+
+rule CheckExpYear12 "check expiration year 12"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear12");
+}
+
+rule CheckSecurityCode12 "check security code 12" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode12");
+}
+
+rule CheckCardNumber13 "check card number structure 13"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber13");
+}
+
+rule Check113 "test chaining 13"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check113");
+}
+
+rule CheckHolderName13 "check holder name 13"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName13");
+}
+
+rule CheckExpMonth13 "check expiration month 13"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth13");
+}
+
+rule CheckExpYear13 "check expiration year 13"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear13");
+}
+
+rule CheckSecurityCode13 "check security code 13" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode13");
+}
+
+rule CheckCardNumber14 "check card number structure 14"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber14");
+}
+
+rule Check114 "test chaining 14"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check114");
+}
+
+rule CheckHolderName14 "check holder name 14"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName14");
+}
+
+rule CheckExpMonth14 "check expiration month 14"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth14");
+}
+
+rule CheckExpYear14 "check expiration year 14"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear14");
+}
+
+rule CheckSecurityCode14 "check security code 14" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode14");
+}
+
+rule CheckCardNumber15 "check card number structure 15"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber15");
+}
+
+rule Check115 "test chaining 15"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check115");
+}
+
+rule CheckHolderName15 "check holder name 15"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName15");
+}
+
+rule CheckExpMonth15 "check expiration month 15"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth15");
+}
+
+rule CheckExpYear15 "check expiration year 15"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear15");
+}
+
+rule CheckSecurityCode15 "check security code 15" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode15");
+}
+
+rule CheckCardNumber16 "check card number structure 16"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber16");
+}
+
+rule Check116 "test chaining 16"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check116");
+}
+
+rule CheckHolderName16 "check holder name 16"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName16");
+}
+
+rule CheckExpMonth16 "check expiration month 16"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth16");
+}
+
+rule CheckExpYear16 "check expiration year 16"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear16");
+}
+
+rule CheckSecurityCode16 "check security code 16" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode16");
+}
+
+rule CheckCardNumber17 "check card number structure 17"  salience 10 {
+    when
+		CreditCard.ValidateCardNumber()
+    then
+		ValidationResults.CardNumber = true;
+		Retract("CheckCardNumber17");
+}
+
+rule Check117 "test chaining 17"  salience 10 {
+	when
+		ValidationResults.CardNumber == true
+	then
+		Log("Check1 = TRUE");
+		Retract("Check117");
+}
+
+rule CheckHolderName17 "check holder name 17"  salience 10 {
+    when
+        CreditCard.ValidateHolderName() == true
+    then
+        ValidationResults.OwnerName = true;
+        Retract("CheckHolderName17");
+}
+
+rule CheckExpMonth17 "check expiration month 17"  salience 10 {
+    when
+        CreditCard.ValidateExpMonth() == true
+    then
+        ValidationResults.ExpireMonth = true;
+        Retract("CheckExpMonth17");
+}
+
+rule CheckExpYear17 "check expiration year 17"  salience 10 {
+	when
+		CreditCard.ValidateExpYear() == true
+	then
+	    ValidationResults.ExpireYear = true;
+	    Retract("CheckExpYear17");
+}
+
+rule CheckSecurityCode17 "check security code 17" salience 10 {
+	when
+		CreditCard.ValidateSecurityCode() == true
+	then
+	    ValidationResults.SecurityCode = true;
+	    Retract("CheckSecurityCode17");
+}
+

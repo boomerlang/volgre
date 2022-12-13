@@ -123,10 +123,10 @@ Examples
 $ curl -X POST http://141.147.22.26:8084/run/engine/credit_card --data @input.json
 
 
-$ curl -X GET http://141.147.22.26:8084/refresh/engine/credit_card --data @input.json
+$ curl -X GET http://141.147.22.26:8084/refresh/engine/credit_card
 
 
-$ curl -X GET http://141.147.22.26:8084/version/engine/credit_card --data @input.json
+$ curl -X GET http://141.147.22.26:8084/version/engine/credit_card
 
 Misc
 ------

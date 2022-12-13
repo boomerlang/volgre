@@ -131,7 +131,7 @@ $ curl -X POST http://141.147.22.26:8084/version/engine/credit_card --data @inpu
 Misc
 ------
 
-To generate a random number of distinct rules use the following shell script
+To generate a set of 1200 distinct rules use the following shell script:
 
 $ bash gen_rules.sh 200 > path_to/rule_file.grl
 
